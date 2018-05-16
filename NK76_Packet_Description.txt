@@ -4,6 +4,25 @@
  31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
 
 
+C/F: (bit 9)
+0 - C
+1 - F
+
+MODE: (bit 13-14)
+10 - 2 / DEH
+01 - 1 / FAN
+00 - 0 / AC
+
+ON: (bit 15)
+1 - ON
+0 - OFF
+
+FAN: (bit 16-17)
+10 - 2 / LOW
+01 - 1 / MED
+11 - 3 / HIGH
+00 - 0 / AUTO
+
 TEMP: (bit 18-23) / need to be reversed and add 16 in case of C, 54 if use F
 C:
 011000 - 18
@@ -48,23 +67,3 @@ F:
 010001
 110001
 001001 - 90
-
-
-C/F: (bit 9)
-0 - C
-1 - F
-
-MODE: (bit 13-14)
-10 - 2 / DEH
-01 - 1 / FAN
-00 - 0 / AC
-
-ON: (bit 15)
-1 - ON
-0 - OFF
-
-FAN: (bit 16-17)
-10 - 2 / LOW
-01 - 1 / MED
-11 - 3 / HIGH
-00 - 0 / AUTO
