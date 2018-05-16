@@ -1,5 +1,7 @@
 # DL_PAC_NK76
-Arduino library for control DeLonghi PAC NK76
+Arduino library for remote control DeLonghi PAC NK76
+
+Required: IRremote library
 
 Installation:
 1. Replace "ir_NEC.cpp" in IRremote folder
