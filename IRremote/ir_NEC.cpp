@@ -38,12 +38,13 @@ void  IRsend::sendNEC (unsigned long data,  int nbits)
 			space(NEC_ZERO_SPACE);
 		}
 	}
-	
+
+	// DL stuff
 	for (int i = 0; i < 6; i++) {
 		mark(NEC_BIT_MARK);
 		space(NEC_ZERO_SPACE);
 	}
-	
+
 	for (int i = 0; i < 2; i++) {
 		mark(NEC_BIT_MARK);
 		space(NEC_ONE_SPACE);
