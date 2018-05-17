@@ -22,11 +22,11 @@ long dl_build_msg(dl_ac_msg* msg) {
 
   if (msg->use_F) {
     buf |= 1L << 9;
-    msg->temperature = constrain(msg->temperature, 64, 90);      // temperature range 64-90F
-    buf |= (long)bit_reverse(msg->temperature-54, 6) << 18;      // reverse 6bits, subtract 54 for F
+    msg->temperature = constrain(msg->temperature, 64, 90);    // temperature range 64-90F
+    buf |= (long)bit_reverse(msg->temperature-54, 6) << 18;    // reverse 6bits, subtract 54 for F
   } else {
-    msg->temperature = constrain(msg->temperature, 18, 30);      // temperature range 18-30C
-    buf |= (long)bit_reverse(msg->temperature-12, 6) << 18;      // reverse 6bits, subtract 12 for C
+    msg->temperature = constrain(msg->temperature, 18, 30);    // temperature range 18-30C
+    buf |= (long)bit_reverse(msg->temperature-12, 6) << 18;    // reverse 6bits, subtract 12 for C
   }
 
   buf |= (long)msg->on << 15;                                  // ON-OFF
@@ -36,7 +36,7 @@ long dl_build_msg(dl_ac_msg* msg) {
   if (msg->mode == 0) {                                        // if AC allow all FAN modes
     buf |= (long)bit_reverse(msg->fan, 2) << 16;               // reversed for proper order
   } else if (msg->mode == 1) {                                 // if BLOW only LO-MI-HI
-    msg->fan = constrain(msg->fan, 1, 3);                       //
+    msg->fan = constrain(msg->fan, 1, 3);                      //
     buf |= (long)bit_reverse(msg->fan, 2) << 16;               //
   }                                                            // in DEH mode set FAN AUTO
 
