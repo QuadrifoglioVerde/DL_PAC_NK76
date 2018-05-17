@@ -6,6 +6,7 @@
 typedef struct {
   bool on;
   bool tmr_on;
+  bool use_F;
   byte temperature;
   byte tmr_value;
   byte mode;

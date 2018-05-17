@@ -6,6 +6,7 @@ dl_ac_msg dl_msg;
 
 void setup() {
   dl_msg.on = false;
+  dl_msg.use_F = false;
   dl_msg.temperature = 25;
   dl_msg.mode=0;
   dl_msg.fan=0;
