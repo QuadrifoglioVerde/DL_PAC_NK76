@@ -26,7 +26,7 @@ long dl_build_msg(dl_ac_msg* msg){
   return buf;
 }
 
-byte bit_reverse(byte data, int n) {
+byte bit_reverse(byte data, byte n) {
   byte var = 0;
   int i, x, y, p;
 
