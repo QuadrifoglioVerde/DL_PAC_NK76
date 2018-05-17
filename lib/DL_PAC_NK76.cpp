@@ -1,5 +1,16 @@
 #include "DL_PAC_NK76.h"
 
+//
+//  bit
+//  2-6   timer value
+//  7     timer ON
+//  9     C/F
+// 13-14  MODE: 0-AC; 1-FAN; 2-DEH
+// 15     ON
+// 16-17  FAN: 0-Auto; 1-Low; 2-Med; 3-High
+// 18-23  Temperature value
+//
+
 long dl_build_msg(dl_ac_msg* msg) {
   long buf = 0xDA000103;
 
@@ -23,10 +34,10 @@ long dl_build_msg(dl_ac_msg* msg) {
   buf |= (long)msg->mode << 13;                                // set MODE
 
   if (msg->mode == 0) {                                        // if AC allow all FAN modes
-    buf |= (long)msg->fan << 16;
+    buf |= (long)bit_reverse(msg->fan, 2) << 16;               // reversed for proper order
   } else if (msg->mode == 1) {                                 // if BLOW only LO-MI-HI
-    if (msg->fan > 0 ){ buf |= (long)msg->fan << 16; }
-    if (msg->fan == 0){ buf |= 1L << 16; }
+    msg->fan = constrain(msg->fan, 1, 3);                       //
+    buf |= (long)bit_reverse(msg->fan, 2) << 16;               //
   }                                                            // in DEH mode set FAN AUTO
 
   return buf;
