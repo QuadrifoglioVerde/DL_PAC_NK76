@@ -1,6 +1,8 @@
 # DL_PAC_NK76
 Arduino library for remote control DeLonghi PAC NK76
 
+WORK IN PROGRESS!
+
 Required: IRremote library
 
 Installation:
@@ -8,7 +10,7 @@ Installation:
 2. Instal lib
 
 Usage:
-See example folder
+- See example folder
 
 TODO:
-Test timer function
+- Test timer function
