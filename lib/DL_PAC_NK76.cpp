@@ -2,13 +2,13 @@
 
 //
 //  bit
-//  2-6   timer value
+//  2-6   timer value (reversed 5bit)
 //  7     timer ON
 //  9     C/F
 // 13-14  MODE: 0-AC; 1-FAN; 2-DEH
 // 15     ON
-// 16-17  FAN: 0-Auto; 1-Low; 2-Med; 3-High
-// 18-23  Temperature value
+// 16-17  FAN: 0-Auto; 1-Low; 2-Med; 3-High (reversed 2bit)
+// 18-23  Temperature value (reversed 6bit)
 //
 
 long dl_build_msg(dl_ac_msg* msg) {
