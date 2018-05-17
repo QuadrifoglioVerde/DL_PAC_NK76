@@ -9,6 +9,8 @@ void setup() {
   dl_msg.temperature = 25;
   dl_msg.mode=0;
   dl_msg.fan=0;
+  dl_msg.tmr_on=false;
+  dl_msg.tmr_value=0;
 
   long data = dl_build_msg(&dl_msg);
   irsend.sendNEC(data, 32);
