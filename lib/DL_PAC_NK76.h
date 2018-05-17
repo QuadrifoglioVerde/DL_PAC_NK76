@@ -5,9 +5,11 @@
 
 typedef struct {
   bool on;
-  int temperature;
-  int mode;
-  int fan;
+  bool tmr_on;
+  byte temperature;
+  byte tmr_value;
+  byte mode;
+  byte fan;
 } dl_ac_msg;
 
 long dl_build_msg(dl_ac_msg* msg);
