@@ -11,7 +11,7 @@ long dl_build_msg(dl_ac_msg* msg) {
 
   if (msg->use_F) {
     buf |= 1L << 9;
-    msg->temperature = constrain(msg->temperature, 64, 90);      // temperature range 64-90C
+    msg->temperature = constrain(msg->temperature, 64, 90);      // temperature range 64-90F
     buf |= (long)bit_reverse(msg->temperature-54, 6) << 18;      // reverse 6bits, subtract 54 for F
   } else {
     msg->temperature = constrain(msg->temperature, 18, 30);      // temperature range 18-30C
