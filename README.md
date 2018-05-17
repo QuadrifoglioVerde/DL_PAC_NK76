@@ -8,7 +8,7 @@ Installation:
 2. Instal lib
 
 Usage:
-see example folder
+See example folder
 
 TODO:
-Timer
+Test timer function
