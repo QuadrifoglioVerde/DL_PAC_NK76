@@ -39,6 +39,7 @@ void  IRsend::sendNEC (unsigned long data,  int nbits)
 		}
 	}
 
+#ifdef DL_NEC
 	// DL stuff
 	for (int i = 0; i < 6; i++) {
 		mark(NEC_BIT_MARK);
@@ -49,6 +50,7 @@ void  IRsend::sendNEC (unsigned long data,  int nbits)
 		mark(NEC_BIT_MARK);
 		space(NEC_ONE_SPACE);
 	}
+#endif
 
 	// Footer
 	mark(NEC_BIT_MARK);
