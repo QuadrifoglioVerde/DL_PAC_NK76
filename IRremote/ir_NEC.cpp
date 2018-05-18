@@ -18,8 +18,10 @@
 #define NEC_RPT_SPACE   2250
 
 //+=============================================================================
+
+
 #if SEND_NEC
-void  IRsend::sendNEC (unsigned long data,  int nbits)
+void  IRsend::sendNEC (unsigned long data,  int nbits, bool dl)
 {
 	// Set IR carrier frequency
 	enableIROut(38);
@@ -39,18 +41,18 @@ void  IRsend::sendNEC (unsigned long data,  int nbits)
 		}
 	}
 
-#ifdef DL_NEC
 	// DL stuff
-	for (int i = 0; i < 6; i++) {
-		mark(NEC_BIT_MARK);
-		space(NEC_ZERO_SPACE);
-	}
+	if (dl) {
+		for (int i = 0; i < 6; i++) {
+			mark(NEC_BIT_MARK);
+			space(NEC_ZERO_SPACE);
+		}
 
-	for (int i = 0; i < 2; i++) {
-		mark(NEC_BIT_MARK);
-		space(NEC_ONE_SPACE);
+		for (int i = 0; i < 2; i++) {
+			mark(NEC_BIT_MARK);
+			space(NEC_ONE_SPACE);
+		}
 	}
-#endif
 
 	// Footer
 	mark(NEC_BIT_MARK);

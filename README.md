@@ -6,8 +6,10 @@ WORK IN PROGRESS!
 Required: IRremote library
 
 Installation:
-1. Replace "ir_NEC.cpp" in IRremote folder
+1. Replace "ir_NEC.cpp" and "IRremote.h" in IRremote folder
 2. Instal lib
+
+Original remote send NEC command and add some ballast, I do not have idea why, without this remote doesn't work.
 
 Usage:
 - See example folder

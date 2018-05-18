@@ -1,10 +1,9 @@
 #include <IRremote.h>
 #include <DL_PAC_NK76.h>
 
-#define DL_NEC
-
 IRsend irsend;
 dl_ac_msg dl_msg;
+
 
 void setup() {
   dl_msg.on = false;
@@ -16,7 +15,7 @@ void setup() {
   dl_msg.tmr_value=0;
 
   long data = dl_build_msg(&dl_msg);
-  irsend.sendNEC(data, 32);
+  irsend.sendNEC(data, 32, true);
 }
 
 void loop() {
