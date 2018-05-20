@@ -1,4 +1,5 @@
 #include "DL_PAC_NK76.h"
+#include <IRremote.h>
 
 //
 //  bit
@@ -10,6 +11,52 @@
 // 16-17  FAN: 0-Auto; 1-Low; 2-Med; 3-High (reversed 2bit)
 // 18-23  Temperature value (reversed 6bit)
 //
+
+#define NEC_BITS          32
+#define NEC_HDR_MARK    9000
+#define NEC_HDR_SPACE   4500
+#define NEC_BIT_MARK     500
+#define NEC_ONE_SPACE   1660
+#define NEC_ZERO_SPACE   600
+#define NEC_RPT_SPACE   2250
+
+// Original function from IRremote lib, added DL stuff
+void sendNEC_DL(unsigned long data,  int nbits)
+{
+  IRsend irsend;
+  // Set IR carrier frequency
+  irsend.enableIROut(38);
+
+  // Header
+  irsend.mark(NEC_HDR_MARK);
+  irsend.space(NEC_HDR_SPACE);
+
+  // Data
+  for (unsigned long  mask = 1UL << (nbits - 1);  mask;  mask >>= 1) {
+    if (data & mask) {
+      irsend.mark(NEC_BIT_MARK);
+      irsend.space(NEC_ONE_SPACE);
+    } else {
+      irsend.mark(NEC_BIT_MARK);
+      irsend.space(NEC_ZERO_SPACE);
+    }
+  }
+
+  // DL stuff
+    for (int i = 0; i < 6; i++) {
+      irsend.mark(NEC_BIT_MARK);
+      irsend.space(NEC_ZERO_SPACE);
+    }
+
+    for (int i = 0; i < 2; i++) {
+      irsend.mark(NEC_BIT_MARK);
+      irsend.space(NEC_ONE_SPACE);
+    }
+
+  // Footer
+  irsend.mark(NEC_BIT_MARK);
+  irsend.space(0);  // Always end with the LED off
+}
 
 long dl_build_msg(dl_ac_msg* msg) {
   long buf = 0xDA000103;

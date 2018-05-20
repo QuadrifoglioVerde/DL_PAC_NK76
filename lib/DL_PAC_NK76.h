@@ -15,5 +15,6 @@ typedef struct {
 
 long dl_build_msg(dl_ac_msg* msg);
 byte bit_reverse(byte data, byte n);
+void sendNEC_DL(unsigned long data, int nbits);
 
 #endif
