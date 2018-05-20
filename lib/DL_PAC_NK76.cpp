@@ -43,15 +43,15 @@ void sendNEC_DL(unsigned long data,  int nbits)
   }
 
   // DL stuff
-    for (int i = 0; i < 6; i++) {
-      irsend.mark(NEC_BIT_MARK);
-      irsend.space(NEC_ZERO_SPACE);
-    }
+  for (int i = 0; i < 6; i++) {
+    irsend.mark(NEC_BIT_MARK);
+    irsend.space(NEC_ZERO_SPACE);
+  }
 
-    for (int i = 0; i < 2; i++) {
-      irsend.mark(NEC_BIT_MARK);
-      irsend.space(NEC_ONE_SPACE);
-    }
+  for (int i = 0; i < 2; i++) {
+    irsend.mark(NEC_BIT_MARK);
+    irsend.space(NEC_ONE_SPACE);
+  }
 
   // Footer
   irsend.mark(NEC_BIT_MARK);
