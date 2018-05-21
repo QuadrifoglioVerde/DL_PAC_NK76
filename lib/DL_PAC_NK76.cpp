@@ -12,13 +12,11 @@
 // 18-23  Temperature value (reversed 6bit)
 //
 
-#define NEC_BITS          32
 #define NEC_HDR_MARK    9000
 #define NEC_HDR_SPACE   4500
 #define NEC_BIT_MARK     500
 #define NEC_ONE_SPACE   1660
 #define NEC_ZERO_SPACE   600
-#define NEC_RPT_SPACE   2250
 
 // Original function from IRremote lib, added DL stuff
 void sendNEC_DL(unsigned long data,  int nbits)
