@@ -33,7 +33,7 @@ FAN: (bit 16-17) / reversed 2bit for proper order
 01 - 2 / MED
 11 - 3 / HIGH
 
-TEMPERATURE: (bit 18-23) / reversed 6bit and add 16 in case of C, 54 if use F
+TEMPERATURE: (bit 18-23) / reversed 6bit and add 16 in case of C, 54 if use F, valid only for AC mode, otherwise set temp to 23C
 C:
 011000 - 18
 111000
