@@ -1,4 +1,4 @@
-#include <arduino.h>
+#include <Arduino.h>
 
 #ifndef DL_PAC_NK76_h
 #define DL_PAC_NK76_h
